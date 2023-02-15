@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="onsen.css">
+    <script src="script.js" defer></script>
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body data-device-back-button-handler-id="1"
+    style="touch-action: pan-y; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);">
+    <ons-page class="page" shown="">
+        <div class="page__background"></div>
+        <div class="page__content">
+            <div style="text-align: center; margin-top: 30px;">
+                <p>
+                    <ons-input id="companyname" modifier="transparent underbar" placeholder="Search company"
+                        float="">
+                        <input type="text" class="text-input text-input--transparent text-input--underbar"
+                            placeholder="Search for companies">
+                        <span
+                            class="text-input__label text-input--transparent__label text-input--underbar__label">Search
+                            for companies</span>
+                    </ons-input>
+                </p>
+                <p style="margin-top: 30px;">
+                    <ons-button onclick="Search()" class="button">Search<button hidden=""></button></ons-button>
+                </p>
+                <table id="searchRes"></table>
+                <p style="margin-top: 20px;" id="list">
+                    <!-- onclick="ShowStocks()" -->
+                    <ons-button id="show" onclick="ShowStocks()" class="button">View My Stocks<button
+                            hidden=""></button></ons-button>
+                </p>
+                <p style="margin-top: 30px;">
+                </p>
+                <table id="stockList"></table>
+                <br>
+                <br>
+                <ons-button id="clearStocks" onclick="ClearStocks()">Clear Portfolio</ons-button>
+                <p></p>
+            </div>
+        </div>
+    </ons-page>
+
+    <ons-modal id="notif" direction="up" class="modal" style="display: none; z-index: 10001;"
+        data-device-back-button-handler-id="0">
+        <div class="modal__content">
+            <ons-button id="closeNotif" class="button">Close<button hidden=""></button></ons-button>
+            <p id="notifText"></p>
+        </div>
+    </ons-modal>
+
+    <ons-modal direction="up" class="modal" id="stockInfo" style="display: none; z-index: 10001;"
+        data-device-back-button-handler-id="0">
+        <div class="modal__content">
+            <ons-button id="close" class="button">Close<button hidden=""></button></ons-button>
+            <ul>
+                <li>Name: <span id="tickerTitle"></span></li>
+                <li>Price: <span id="price"></span></li>
+                <li>PE Ratio: <span id="peRatio"></span></li>
+                <li>EPS (TTM): <span id="eps"></span></li>
+                <li>Dividend Yield: <span id="divyield"></span></li>
+            </ul>
+            <!-- <ons-button id="remove" class="button">Remove from list<button hidden=""></button></ons-button> -->
+        </div>
+    </ons-modal>
+</body>
+</html>
